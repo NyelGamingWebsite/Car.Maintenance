@@ -88,6 +88,27 @@
     font-weight: bold;
   }
 
+/* Burger Animation */
+.burger div {
+  width: 100%;
+  height: 4px;
+  background-color: #555;
+  transition: all 0.3s ease;
+}
+
+.burger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+  
+  
 /* Updated Icon Colors for Service Cards */
 .service-card:nth-child(1) svg {
   fill: #ff5722; /* Orange for Oil Change */
@@ -662,39 +683,32 @@ form input:focus, form select:focus, form textarea:focus {
 </footer>
 
 <script>
-  // Burger Menu toggle
   const burger = document.getElementById('burger');
   const nav = document.getElementById('nav');
-  const navLinks = nav.querySelectorAll('a'); // get all nav links
+  const navLinks = nav.querySelectorAll('a');
 
-  // Toggle nav on burger click
   burger.addEventListener('click', () => {
     nav.classList.toggle('active');
+    burger.classList.toggle('active'); // 👈 Add this for animation
   });
 
-  // Close nav when a link is clicked (mobile behavior)
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('active');
+      burger.classList.remove('active'); // 👈 Also close icon on click
     });
   });
 
-  // Scroll to top button
   const topBtn = document.getElementById('topBtn');
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      topBtn.style.display = 'block';
-    } else {
-      topBtn.style.display = 'none';
-    }
+    topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
   });
 
   topBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
-
 
 
 <script>
