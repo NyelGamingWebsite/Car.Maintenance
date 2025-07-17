@@ -403,13 +403,9 @@
 </div>
 
 <section id="home">
-  <h2>Welcome</h2>
+  <h1>Expert Car & Truck Maintenance</h1>
   <p>Your trusted partner for reliable vehicle care and repairs. Quality service with a silver touch.</p>
 </section>
-
-<!-- The rest of your sections (services, about, pricing, booking, testimonials, contact) remain here... -->
-
-<!-- For brevity, I’m skipping them here since they are unchanged, but you would keep your previous content -->
 
 <section id="services">
   <h2>Our Services</h2>
@@ -441,9 +437,81 @@
   </div>
 </section>
 
-<!-- Keep your other sections like about, pricing, booking, testimonials, contact here -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>At Elite Auto Care, we specialize in expert maintenance and repair for cars and trucks. Our certified technicians deliver quality workmanship with precision and care. We pride ourselves on transparency, timely service, and customer satisfaction. Trust us to keep your vehicle in top shape.</p>
+</section>
 
-<!-- Scroll to Top Button -->
+<section id="pricing">
+  <h2>Pricing & Packages</h2>
+  <table>
+    <thead>
+      <tr><th>Service</th><th>Price</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Oil Change</td><td>$49.99</td></tr>
+      <tr><td>Brake Repair</td><td>$120 - $350</td></tr>
+      <tr><td>Diagnostics</td><td>$75</td></tr>
+      <tr><td>Tire Rotation</td><td>$30</td></tr>
+      <tr><td>Full Maintenance Package</td><td>$399</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="booking">
+  <h2>Book an Appointment</h2>
+  <form>
+    <label for="fullname">Full Name *</label>
+    <input type="text" id="fullname" name="fullname" placeholder="Your full name" required />
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+    <label for="phone">Phone *</label>
+    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required />
+
+    <label for="service">Select Service *</label>
+    <select id="service" name="service" required>
+      <option value="" disabled selected>Choose a service</option>
+      <option>Oil Change</option>
+      <option>Brake Repair</option>
+      <option>Diagnostics</option>
+      <option>Tire Rotation</option>
+      <option>Full Maintenance Package</option>
+    </select>
+
+    <label for="date">Preferred Date *</label>
+    <input type="date" id="date" name="date" required />
+
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<section id="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-list">
+    <div class="testimonial">
+      <p>"Fast, reliable, and affordable! Elite Auto Care saved me on short notice."</p>
+      <div class="client">– Mark R.</div>
+    </div>
+    <div class="testimonial">
+      <p>"Professional staff and excellent customer service. Highly recommended."</p>
+      <div class="client">– Sarah T.</div>
+    </div>
+    <div class="testimonial">
+      <p>"My go-to garage for all my car maintenance needs. Always satisfied."</p>
+      <div class="client">– David K.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Phone: (555) 123-4567</p>
+  <p>Email: <a href="mailto:info@eliteautocare.com">info@eliteautocare.com</a></p>
+  <p>Address: 1234 Auto Lane, Motor City, USA</p>
+</section>
+  
 <button id="topBtn" aria-label="Scroll to top">&uarr;</button>
 
 <footer>
