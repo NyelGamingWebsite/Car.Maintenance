@@ -1,737 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Elite Auto Care - Car Maintenance Services</title>
-<style>
-  /* Reset */
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff;
-    color: #333;
-    scroll-behavior: smooth;
-  }
-
-   /* Header and Nav */
-  header {
-    background-color: #ffffff; /* solid white */
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #ccc;
-    position: sticky;
-    top: 0;
-    z-index: 1001;
-  }
-
-  header h1 {
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: #555;
-    letter-spacing: 2px;
-    margin: 0;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-  }
-
-  nav a {
-    color: #555;
-    margin: 0 16px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-  }
-
-  nav a:hover {
-    color: #000;
-  }
-
-  .contact-number {
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #666;
-    margin-left: 20px;
-  }
-
-  header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* existing styles… */
-}
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    width: 120px;
-    height: auto;
-    margin-right: 10px;
-  }
-  
-  .logo span {
-    color: #ccc;
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-
-/* Burger Animation */
-.burger div {
-  width: 100%;
-  height: 4px;
-  background-color: #555;
-  transition: all 0.3s ease;
-}
-
-.burger.active div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger.active div:nth-child(2) {
-  opacity: 0;
-}
-
-.burger.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-  
-  
-/* Updated Icon Colors for Service Cards */
-.service-card:nth-child(1) svg {
-  fill: #ff5722; /* Orange for Oil Change */
-}
-.service-card:nth-child(2) svg {
-  fill: #2196f3; /* Blue for Brake Repair */
-}
-.service-card:nth-child(3) svg circle,
-.service-card:nth-child(3) svg path {
-  stroke: #9c27b0; /* Purple for Diagnostics */
-}
-.service-card:nth-child(4) svg circle,
-.service-card:nth-child(4) svg path {
-  stroke: #4caf50; /* Green for Tire Rotation */
-}
-
-  .banner-content h1 {
-  background: linear-gradient(90deg, #e0e0e0, #bdbdbd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Booking Form - Two columns on wider screens */
-@media(min-width: 600px) {
-  form label, form input, form select, form textarea {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  form label {
-    width: 35%;
-    margin-bottom: 20px;
-    text-align: right;
-    padding-right: 15px;
-    box-sizing: border-box;
-  }
-  form input, form select, form textarea {
-    width: 60%;
-    margin-bottom: 20px;
-  }
-  form button {
-    margin-left: 35%;
-    width: auto;
-  }
-}
-
-/* Booking Form input focus */
-form input:focus, form select:focus, form textarea:focus {
-  outline: 3px solid #4caf50;
-  transition: outline 0.3s ease;
-}
-
-/* Testimonial quote icon */
-.testimonial {
-  position: relative;
-  padding-left: 40px;
-}
-
-.testimonial::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 15px;
-  width: 24px;
-  height: 24px;
-  background: url('data:image/svg+xml;utf8,<svg fill="%239c27b0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.17 6A5 5 0 0 1 12 11a5 5 0 0 1-4.83 5 5 5 0 0 1-1.12-9.88L7.17 6zm9 0A5 5 0 0 1 21 11a5 5 0 0 1-4.83 5 5 5 0 0 1-1.12-9.88L16.17 6z"/></svg>') no-repeat center center;
-  background-size: contain;
-  opacity: 0.3;
-}
-
-/* Fade-in Animations */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-  
-  /* Burger Menu */
-  .burger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    width: 28px;
-    height: 22px;
-    justify-content: space-between;
-  }
-
-  .burger div {
-    background-color: #555;
-    height: 4px;
-    border-radius: 2px;
-  }
-
-  /* Banner / Parallax */
-  .banner {
-    position: relative;
-    background-image: url('copilot_image_1752787390494.jpeg');
-    height: 450px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-  }
-
-  .banner::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0,0,0,0.45);
-    z-index: 1;
-  }
-
-  .banner-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-  }
-
-  .banner-content p {
-    font-size: 1.4rem;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-  }
-
-  /* Sections */
-  section {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: auto;
-  }
-
-  h2 {
-    font-weight: 700;
-    color: #555;
-    font-size: 2.4rem;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #888;
-    padding-bottom: 8px;
-  }
-
-  /* The rest of your styles remain mostly unchanged... */
-
-  /* Services Grid */
-  #services .service-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-  }
-
-  .service-card {
-    background: #fafafa;
-    border: 2px solid #888;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-  }
-
-  .service-card:hover {
-    background: #eaeaea;
-  }
-
-  .service-card svg {
-    width: 64px;
-    height: 64px;
-    fill: #666;
-    margin-bottom: 12px;
-  }
-
-  .service-card h3 {
-    color: #555;
-    margin-bottom: 10px;
-  }
-
-  .service-card p {
-    color: #666;
-    font-size: 1rem;
-  }
-
-  /* About */
-  #about p {
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-
-  /* Pricing Table */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    color: #555;
-    margin-top: 20px;
-  }
-
-  th, td {
-    border: 1px solid #888;
-    padding: 14px 20px;
-    text-align: center;
-  }
-
-  th {
-    background-color: #ddd;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f7f7f7;
-  }
-
-  /* Booking Form */
-  form {
-    max-width: 500px;
-    margin: auto;
-    background: #fafafa;
-    padding: 25px;
-    border-radius: 10px;
-    border: 2px solid #888;
-  }
-
-  form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #555;
-  }
-
-  form input, form select, form textarea {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 18px;
-    border-radius: 6px;
-    border: 1px solid #bbb;
-    background: #fff;
-    color: #333;
-    font-size: 1rem;
-  }
-
-  form input:focus, form select:focus, form textarea:focus {
-    outline: 2px solid #666;
-  }
-
-  form button {
-    background: #888;
-    color: #fff;
-    border: none;
-    padding: 14px 24px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-radius: 30px;
-    transition: background-color 0.3s ease;
-  }
-
-  form button:hover {
-    background: #555;
-  }
-
-  /* Testimonials */
-  #testimonials .testimonial-list {
-    max-width: 700px;
-    margin: auto;
-  }
-
-  .testimonial {
-    background: #fafafa;
-    border: 2px solid #888;
-    padding: 20px 25px;
-    margin-bottom: 25px;
-    border-radius: 12px;
-    color: #555;
-  }
-
-  .testimonial p {
-    font-style: italic;
-    font-size: 1.1rem;
-  }
-
-  .testimonial .client {
-    margin-top: 14px;
-    font-weight: 700;
-    color: #444;
-  }
-
-  /* Contact */
-  #contact p {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-  }
-
-  #contact a {
-    color: #555;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-
-  #contact a:hover {
-    text-decoration: underline;
-  }
-
-  .service-card:nth-child(5) svg {
-  fill: #ff9800; /* Orange for Engine Tune-Up */
-}
-.service-card:nth-child(6) svg {
-  fill: #4caf50; /* Green for Battery */
-}
-.service-card:nth-child(7) svg circle,
-.service-card:nth-child(7) svg path {
-  stroke: #2196f3; /* Blue for Wheel Alignment */
-}
-.service-card:nth-child(8) svg path {
-  stroke: #9c27b0; /* Purple for AC Repair */
-}
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px 10px;
-    color: #666;
-    background-color: #f5f5f5;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-  }
-
-  /* Scroll to top button */
-  #topBtn {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1002;
-    background-color: #888;
-    color: white;
-    border: none;
-    padding: 12px 16px;
-    border-radius: 50%;
-    font-size: 22px;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease;
-  }
-
-  #topBtn:hover {
-    background-color: #555;
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .banner-content h1 {
-      font-size: 2.2rem;
-    }
-    .banner-content p {
-      font-size: 1.1rem;
-    }
-  }
-
-  @media (max-width: 600px) {
-    nav {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #f5f5f5;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      border-top: 1px solid #ccc;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Autocare</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
     }
 
-    nav.active {
+    header {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
     }
 
     nav a {
-      margin: 10px 0;
-      padding: 10px 20px;
-      border-bottom: 1px solid #ccc;
+      text-decoration: none;
       color: #333;
     }
 
+    /* Burger menu */
     .burger {
-      display: flex;
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1001;
     }
 
-    .contact-number {
-      display: none;
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      transition: all 0.3s ease;
     }
-  }
-</style>
+
+    .burger.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger.active div:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    @media screen and (max-width: 768px) {
+      .burger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 20px;
+        z-index: 1000;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+    }
+
+    /* Scroll to top button */
+    #topBtn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      display: none;
+      background: #333;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">
-  <img src="redlogo.png" alt="AutoCare Logo" />
- <!-- This is an HTML comment  <span>Elite Auto Care</span> -->
-  </div>
-  <div class="burger" id="burger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <nav id="nav">
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#about">About Us</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#booking">Book Appointment</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="contact-number">Call us: (555) 123-4567</div>
-</header>
-
-<!-- Parallax Banner -->
-<div class="banner" role="banner" aria-label="Car Maintenance Banner">
-  <div class="banner-content">
-    <h1>Elite Auto Care</h1>
-    <p>Reliable Car & Truck Maintenance You Can Trust</p>
-  </div>
-</div>
-
-<section id="home">
-  <h1>Expert Car & Truck Maintenance</h1>
-  <p>Your trusted partner for reliable vehicle care and repairs. Quality service with a silver touch.</p>
-</section>
-
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="service-list">
-    <div class="service-card fade-in">
-      <!-- Oil Change Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 2c-4 0-7 3-7 7v9H12c-2 0-4 2-4 4v14c0 2 2 4 4 4h40c2 0 4-2 4-4V22c0-2-2-4-4-4H39V9c0-4-3-7-7-7zM32 18v-9a3 3 0 0 1 6 0v9H32z"/></svg>
-      <h3>Oil Change</h3>
-      <p>Keep your engine running smoothly with regular oil changes.</p>
+  <header>
+    <div class="logo">Elite Autocare</div>
+    <nav id="nav">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="burger" id="burger">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
-    <div class="service-card fade-in">
-      <!-- Brake Repair Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 22H12v20h40V22zm-8 16h-8v-8h8v8z"/></svg>
-      <h3>Brake Repair</h3>
-      <p>Reliable brake service to keep you safe on the road.</p>
-    </div>
-    <div class="service-card fade-in">
-      <!-- Diagnostics Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#666" stroke-width="2" fill="none"/><path d="M20 32h24M32 20v24" stroke="#666" stroke-width="3" stroke-linecap="round"/></svg>
-      <h3>Diagnostics</h3>
-      <p>Advanced vehicle diagnostics to pinpoint issues fast.</p>
-    </div>
-    <div class="service-card fade-in">
-      <!-- Tire Rotation Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" stroke="#666" stroke-width="4" fill="none"/><path d="M32 12v8M32 44v8M12 32h8M44 32h8" stroke="#666" stroke-width="3" stroke-linecap="round"/></svg>
-      <h3>Tire Rotation</h3>
-      <p>Extend tire life and improve handling with rotations.</p>
-    </div>
-    <div class="service-card fade-in">
-      <!-- Engine Tune-Up -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="#ff9800" d="M32 4l6 12h12l-10 8 4 12-10-6-10 6 4-12-10-8h12z"/></svg>
-      <h3>Engine Tune-Up</h3>
-      <p>Boost performance and fuel efficiency with expert tuning.</p>
-    </div>
-    <div class="service-card fade-in">
-      <!-- Battery Replacement -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="20" width="48" height="24" fill="#4caf50"/><path d="M16 28h8v8h-8zM40 28h8v8h-8z" fill="#fff"/></svg>
-      <h3>Battery Replacement</h3>
-      <p>Quick and reliable car battery replacement service.</p>
-    </div>
-    <div class="service-card fade-in">
-      <!-- Wheel Alignment -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#2196f3" stroke-width="4" fill="none"/><path d="M16 32h32" stroke="#2196f3" stroke-width="4"/></svg>
-      <h3>Wheel Alignment</h3>
-      <p>Improve tire life and vehicle stability with precision alignment.</p>
-    </div>
-    <div class="service-card fade-in">
-      <!-- AC Repair -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M12 20h40v24H12z" stroke="#9c27b0" stroke-width="4" fill="none"/><path d="M20 28h24" stroke="#9c27b0" stroke-width="2"/></svg>
-      <h3>AC Repair</h3>
-      <p>Stay cool with our fast and effective AC system repairs.</p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<section id="about">
-  <h2>About Us</h2>
-  <p>At Elite Auto Care, we specialize in expert maintenance and repair for cars and trucks. Our certified technicians deliver quality workmanship with precision and care. We pride ourselves on transparency, timely service, and customer satisfaction. Trust us to keep your vehicle in top shape.</p>
-</section>
+  <main>
+    <section class="fade-in" style="padding: 40px;">
+      <h1>Welcome to Elite Autocare</h1>
+      <p>Your trusted auto service center in town.</p>
+    </section>
+    <section class="fade-in" style="padding: 40px;">
+      <h2>Our Services</h2>
+      <p>We offer maintenance, repairs, detailing and more.</p>
+    </section>
+  </main>
 
-<section id="pricing">
-  <h2>Pricing & Packages</h2>
-  <table>
-    <thead>
-      <tr><th>Service</th><th>Price</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Oil Change</td><td>$49.99</td></tr>
-      <tr><td>Brake Repair</td><td>$120 - $350</td></tr>
-      <tr><td>Diagnostics</td><td>$75</td></tr>
-      <tr><td>Tire Rotation</td><td>$30</td></tr>
-      <tr><td>Full Maintenance Package</td><td>$399</td></tr>
-    </tbody>
-  </table>
-</section>
+  <button id="topBtn">Top</button>
 
-<section id="booking">
-  <h2>Book an Appointment</h2>
-  <form>
-    <label for="fullname">Full Name *</label>
-    <input type="text" id="fullname" name="fullname" placeholder="Your full name" required />
+  <script>
+    // Burger menu toggle and animation
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    const navLinks = nav.querySelectorAll('a');
 
-    <label for="email">Email *</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required />
-
-    <label for="phone">Phone *</label>
-    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required />
-
-    <label for="service">Select Service *</label>
-    <select id="service" name="service" required>
-      <option value="" disabled selected>Choose a service</option>
-      <option>Oil Change</option>
-      <option>Brake Repair</option>
-      <option>Diagnostics</option>
-      <option>Tire Rotation</option>
-      <option>Engine Tune-Up</option>
-      <option>Battery Replacement</option>
-      <option>Wheel Alignment</option>
-      <option>AC Repair</option>
-      <option>Full Maintenance Package</option>
-    </select>
-
-    <label for="date">Preferred Date *</label>
-    <input type="date" id="date" name="date" required />
-
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-<section id="testimonials">
-  <h2>What Our Clients Say</h2>
-  <div class="testimonial-list">
-    <div class="testimonial fade-in">
-      <p>"Fast, reliable, and affordable! Elite Auto Care saved me on short notice."</p>
-      <div class="client">– Mark R.</div>
-    </div>
-    <div class="testimonial fade-in">
-      <p>"Professional staff and excellent customer service. Highly recommended."</p>
-      <div class="client">– Sarah T.</div>
-    </div>
-    <div class="testimonial fade-in">
-      <p>"My go-to garage for all my car maintenance needs. Always satisfied."</p>
-      <div class="client">– David K.</div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p>Phone: (555) 123-4567</p>
-  <p>Email: <a href="mailto:info@eliteautocare.com">info@eliteautocare.com</a></p>
-  <p>Address: 1234 Auto Lane, Motor City, USA</p>
-</section>
-  
-<button id="topBtn" aria-label="Scroll to top">&uarr;</button>
-
-<footer>
-  &copy; 2025 Elite Auto Care | Designed by Laniel Gabriel Veluz
-</footer>
-
-<script>
-  const burger = document.getElementById('burger');
-  const nav = document.getElementById('nav');
-  const navLinks = nav.querySelectorAll('a');
-
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    burger.classList.toggle('active'); // 👈 Add this for animation
-  });
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      burger.classList.remove('active'); // 👈 Also close icon on click
-    });
-  });
-
-  const topBtn = document.getElementById('topBtn');
-
-  window.addEventListener('scroll', () => {
-    topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
-
-  topBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
-
-
-<script>
-  // Fade-in on scroll using Intersection Observer
-  const faders = document.querySelectorAll('.fade-in');
-
-  const appearOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
-  };
-
-  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      appearOnScroll.unobserve(entry.target);
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      burger.classList.toggle('active');
     });
-  }, appearOptions);
 
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
-</script>
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        burger.classList.remove('active');
+      });
+    });
 
+    // Scroll to top button
+    const topBtn = document.getElementById('topBtn');
+
+    window.addEventListener('scroll', () => {
+      topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Fade-in animation using Intersection Observer
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 </body>
 </html>
