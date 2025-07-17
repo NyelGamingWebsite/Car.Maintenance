@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elite Auto Care - Car Maintenance Services</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #ccc;
+    scroll-behavior: smooth;
+  }
+
+  header {
+    background: linear-gradient(90deg, #1f1f1f, #2c2c2c);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #bbb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  header h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: silver;
+    letter-spacing: 2px;
+  }
+
+  header .contact-number {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #bbb;
+  }
+
+  nav a {
+    color: silver;
+    margin: 0 16px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #ddd;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Sections */
+  section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  h2 {
+    font-weight: 700;
+    color: silver;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid silver;
+    padding-bottom: 8px;
+  }
+
+  /* Home Hero */
+  #home {
+    text-align: center;
+    padding: 100px 20px 80px;
+  }
+
+  #home h1 {
+    font-size: 3rem;
+    color: silver;
+    margin-bottom: 12px;
+    letter-spacing: 3px;
+  }
+
+  #home p {
+    font-size: 1.3rem;
+    color: #bbb;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Services Grid */
+  #services .service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    background: #1e1e1e;
+    border: 2px solid silver;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .service-card:hover {
+    background: #333;
+  }
+
+  .service-card svg {
+    width: 64px;
+    height: 64px;
+    fill: silver;
+    margin-bottom: 12px;
+  }
+
+  .service-card h3 {
+    color: silver;
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    color: #bbb;
+    font-size: 1rem;
+  }
+
+  /* About */
+  #about p {
+    color: #bbb;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  /* Pricing Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: silver;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid silver;
+    padding: 14px 20px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #2b2b2b;
+  }
+
+  tr:nth-child(even) {
+    background-color: #1f1f1f;
+  }
+
+  /* Booking Form */
+  form {
+    max-width: 500px;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid silver;
+  }
+
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: silver;
+  }
+
+  form input, form select, form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #121212;
+    color: #ccc;
+    font-size: 1rem;
+  }
+
+  form input:focus, form select:focus, form textarea:focus {
+    outline: 2px solid silver;
+  }
+
+  form button {
+    background: silver;
+    color: #121212;
+    border: none;
+    padding: 14px 24px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+  }
+
+  form button:hover {
+    background: #ddd;
+  }
+
+  /* Testimonials */
+  #testimonials .testimonial-list {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .testimonial {
+    background: #1e1e1e;
+    border: 2px solid silver;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    color: #bbb;
+  }
+
+  .testimonial p {
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+
+  .testimonial .client {
+    margin-top: 14px;
+    font-weight: 700;
+    color: silver;
+  }
+
+  /* Contact */
+  #contact p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  #contact a {
+    color: silver;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  #contact a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px 10px;
+    color: silver;
+    background-color: #1f1f1f;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+  }
+
+  /* Smooth Scroll for nav */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      margin: 8px 10px;
+    }
+
+    #services .service-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Elite Auto Care</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About Us</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#booking">Book Appointment</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="contact-number">Call us: (555) 123-4567</div>
+</header>
+
+<section id="home">
+  <h1>Expert Car & Truck Maintenance</h1>
+  <p>Your trusted partner for reliable vehicle care and repairs. Quality service with a silver touch.</p>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="service-list">
+    <div class="service-card">
+      <!-- Oil Change Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 2c-4 0-7 3-7 7v9H12c-2 0-4 2-4 4v14c0 2 2 4 4 4h40c2 0 4-2 4-4V22c0-2-2-4-4-4H39V9c0-4-3-7-7-7zM32 18v-9a3 3 0 0 1 6 0v9H32z"/></svg>
+      <h3>Oil Change</h3>
+      <p>Keep your engine running smoothly with regular oil changes.</p>
+    </div>
+    <div class="service-card">
+      <!-- Brake Repair Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 22H12v20h40V22zm-8 16h-8v-8h8v8z"/></svg>
+      <h3>Brake Repair</h3>
+      <p>Reliable brake service to keep you safe on the road.</p>
+    </div>
+    <div class="service-card">
+      <!-- Diagnostics Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="silver" stroke-width="2" fill="none"/><path d="M20 32h24M32 20v24" stroke="silver" stroke-width="3" stroke-linecap="round"/></svg>
+      <h3>Diagnostics</h3>
+      <p>Advanced vehicle diagnostics to pinpoint issues fast.</p>
+    </div>
+    <div class="service-card">
+      <!-- Tire Rotation Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" stroke="silver" stroke-width="4" fill="none"/><path d="M32 12v8M32 44v8M12 32h8M44 32h8" stroke="silver" stroke-width="3" stroke-linecap="round"/></svg>
+      <h3>Tire Rotation</h3>
+      <p>Extend tire life and improve handling with rotations.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>At Elite Auto Care, we specialize in expert maintenance and repair for cars and trucks. Our certified technicians deliver quality workmanship with precision and care. We pride ourselves on transparency, timely service, and customer satisfaction. Trust us to keep your vehicle in top shape.</p>
+</section>
+
+<section id="pricing">
+  <h2>Pricing & Packages</h2>
+  <table>
+    <thead>
+      <tr><th>Service</th><th>Price</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Oil Change</td><td>$49.99</td></tr>
+      <tr><td>Brake Repair</td><td>$120 - $350</td></tr>
+      <tr><td>Diagnostics</td><td>$75</td></tr>
+      <tr><td>Tire Rotation</td><td>$30</td></tr>
+      <tr><td>Full Maintenance Package</td><td>$399</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="booking">
+  <h2>Book an Appointment</h2>
+  <form>
+    <label for="fullname">Full Name *</label>
+    <input type="text" id="fullname" name="fullname" placeholder="Your full name" required />
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+    <label for="phone">Phone *</label>
+    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required />
+
+    <label for="service">Select Service *</label>
+    <select id="service" name="service" required>
+      <option value="" disabled selected>Choose a service</option>
+      <option>Oil Change</option>
+      <option>Brake Repair</option>
+      <option>Diagnostics</option>
+      <option>Tire Rotation</option>
+      <option>Full Maintenance Package</option>
+    </select>
+
+    <label for="date">Preferred Date *</label>
+    <input type="date" id="date" name="date" required />
+
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<section id="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-list">
+    <div class="testimonial">
+      <p>"Fast, reliable, and affordable! Elite Auto Care saved me on short notice."</p>
+      <div class="client">– Mark R.</div>
+    </div>
+    <div class="testimonial">
+      <p>"Professional staff and excellent customer service. Highly recommended."</p>
+      <div class="client">– Sarah T.</div>
+    </div>
+    <div class="testimonial">
+      <p>"My go-to garage for all my car maintenance needs. Always satisfied."</p>
+      <div class="client">– David K.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Phone: (555) 123-4567</p>
+  <p>Email: <a href="mailto:info@eliteautocare.com">info@eliteautocare.com</a></p>
+  <p>Address: 1234 Auto Lane, Motor City, USA</p>
+</section>
+
+<footer>
+  &copy; 2025 Elite Auto Care | Designed with ⚙️ by ChatGPT
+</footer>
+
+<script>
+  // Simple form submission handler placeholder (no backend)
+  document.querySelector('form').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you for booking! We will contact you soon.');
+    e.target.reset();
+  });
+</script>
+
+</body>
+</html>
