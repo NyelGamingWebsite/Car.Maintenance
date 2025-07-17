@@ -176,6 +176,17 @@
     padding: 20px;
     text-align: center;
     transition: background-color 0.3s ease;
+
+    /* FADE-IN ANIMATION INITIAL STATE */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  /* Make fade-in visible */
+  .service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .service-card:hover {
@@ -598,8 +609,8 @@
     });
   });
 
-  // Animate testimonials on scroll using IntersectionObserver
-  const testimonials = document.querySelectorAll('.testimonial');
+  // Animate testimonials AND service cards on scroll using IntersectionObserver
+  const fadeElems = document.querySelectorAll('.testimonial, .service-card');
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -612,7 +623,7 @@
     threshold: 0.1
   });
 
-  testimonials.forEach(t => observer.observe(t));
+  fadeElems.forEach(el => observer.observe(el));
 
   // Scroll to top button
   const topBtn = document.getElementById('topBtn');
