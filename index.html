@@ -662,29 +662,39 @@ form input:focus, form select:focus, form textarea:focus {
 </footer>
 
 <script>
-  // Burger Menu toggle
-  const burger = document.getElementById('burger');
-  const nav = document.getElementById('nav');
+  // Burger Menu toggle
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  const navLinks = nav.querySelectorAll('a'); // get all nav links
 
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
+  // Toggle nav on burger click
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
 
-  // Scroll to top button
-  const topBtn = document.getElementById('topBtn');
+  // Close nav when a link is clicked (mobile behavior)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+    });
+  });
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      topBtn.style.display = 'block';
-    } else {
-      topBtn.style.display = 'none';
-    }
-  });
+  // Scroll to top button
+  const topBtn = document.getElementById('topBtn');
 
-  topBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      topBtn.style.display = 'block';
+    } else {
+      topBtn.style.display = 'none';
+    }
+  });
+
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 </script>
+
 
 
 <script>
