@@ -110,7 +110,64 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Booking Form - Two columns on wider screens */
+@media(min-width: 600px) {
+  form label, form input, form select, form textarea {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  form label {
+    width: 35%;
+    margin-bottom: 20px;
+    text-align: right;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+  form input, form select, form textarea {
+    width: 60%;
+    margin-bottom: 20px;
+  }
+  form button {
+    margin-left: 35%;
+    width: auto;
+  }
+}
 
+/* Booking Form input focus */
+form input:focus, form select:focus, form textarea:focus {
+  outline: 3px solid #4caf50;
+  transition: outline 0.3s ease;
+}
+
+/* Testimonial quote icon */
+.testimonial {
+  position: relative;
+  padding-left: 40px;
+}
+
+.testimonial::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  width: 24px;
+  height: 24px;
+  background: url('data:image/svg+xml;utf8,<svg fill="%239c27b0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.17 6A5 5 0 0 1 12 11a5 5 0 0 1-4.83 5 5 5 0 0 1-1.12-9.88L7.17 6zm9 0A5 5 0 0 1 21 11a5 5 0 0 1-4.83 5 5 5 0 0 1-1.12-9.88L16.17 6z"/></svg>') no-repeat center center;
+  background-size: contain;
+  opacity: 0.3;
+}
+
+/* Fade-in Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
   
   /* Burger Menu */
   .burger {
@@ -468,49 +525,49 @@
 <section id="services">
   <h2>Our Services</h2>
   <div class="service-list">
-    <div class="service-card">
+    <div class="service-card fade-in">
       <!-- Oil Change Icon -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 2c-4 0-7 3-7 7v9H12c-2 0-4 2-4 4v14c0 2 2 4 4 4h40c2 0 4-2 4-4V22c0-2-2-4-4-4H39V9c0-4-3-7-7-7zM32 18v-9a3 3 0 0 1 6 0v9H32z"/></svg>
       <h3>Oil Change</h3>
       <p>Keep your engine running smoothly with regular oil changes.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card fade-in">
       <!-- Brake Repair Icon -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M52 22H12v20h40V22zm-8 16h-8v-8h8v8z"/></svg>
       <h3>Brake Repair</h3>
       <p>Reliable brake service to keep you safe on the road.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card fade-in">
       <!-- Diagnostics Icon -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#666" stroke-width="2" fill="none"/><path d="M20 32h24M32 20v24" stroke="#666" stroke-width="3" stroke-linecap="round"/></svg>
       <h3>Diagnostics</h3>
       <p>Advanced vehicle diagnostics to pinpoint issues fast.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card fade-in">
       <!-- Tire Rotation Icon -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" stroke="#666" stroke-width="4" fill="none"/><path d="M32 12v8M32 44v8M12 32h8M44 32h8" stroke="#666" stroke-width="3" stroke-linecap="round"/></svg>
       <h3>Tire Rotation</h3>
       <p>Extend tire life and improve handling with rotations.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card fade-in">
       <!-- Engine Tune-Up -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="#ff9800" d="M32 4l6 12h12l-10 8 4 12-10-6-10 6 4-12-10-8h12z"/></svg>
       <h3>Engine Tune-Up</h3>
       <p>Boost performance and fuel efficiency with expert tuning.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card fade-in">
       <!-- Battery Replacement -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="20" width="48" height="24" fill="#4caf50"/><path d="M16 28h8v8h-8zM40 28h8v8h-8z" fill="#fff"/></svg>
       <h3>Battery Replacement</h3>
       <p>Quick and reliable car battery replacement service.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card fade-in">
       <!-- Wheel Alignment -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#2196f3" stroke-width="4" fill="none"/><path d="M16 32h32" stroke="#2196f3" stroke-width="4"/></svg>
       <h3>Wheel Alignment</h3>
       <p>Improve tire life and vehicle stability with precision alignment.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card fade-in">
       <!-- AC Repair -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M12 20h40v24H12z" stroke="#9c27b0" stroke-width="4" fill="none"/><path d="M20 28h24" stroke="#9c27b0" stroke-width="2"/></svg>
       <h3>AC Repair</h3>
@@ -576,15 +633,15 @@
 <section id="testimonials">
   <h2>What Our Clients Say</h2>
   <div class="testimonial-list">
-    <div class="testimonial">
+    <div class="testimonial fade-in">
       <p>"Fast, reliable, and affordable! Elite Auto Care saved me on short notice."</p>
       <div class="client">– Mark R.</div>
     </div>
-    <div class="testimonial">
+    <div class="testimonial fade-in">
       <p>"Professional staff and excellent customer service. Highly recommended."</p>
       <div class="client">– Sarah T.</div>
     </div>
-    <div class="testimonial">
+    <div class="testimonial fade-in">
       <p>"My go-to garage for all my car maintenance needs. Always satisfied."</p>
       <div class="client">– David K.</div>
     </div>
@@ -626,6 +683,29 @@
 
   topBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+
+<script>
+  // Fade-in on scroll using Intersection Observer
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      appearOnScroll.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
   });
 </script>
 
