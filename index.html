@@ -20,7 +20,7 @@
 
   /* Header and Nav */
   header {
-    background-color: #ffffff;
+    background-color: #ffffff; /* solid white */
     padding: 20px 30px;
     display: flex;
     justify-content: space-between;
@@ -81,36 +81,40 @@
     font-weight: bold;
   }
 
-  /* Service Card Icon Colors */
-  .service-card:nth-child(1) svg {
-    fill: #ff5722; /* Orange for Oil Change */
-  }
-  .service-card:nth-child(2) svg {
-    fill: #2196f3; /* Blue for Brake Repair */
-  }
-  .service-card:nth-child(3) svg circle,
-  .service-card:nth-child(3) svg path {
-    stroke: #9c27b0; /* Purple for Diagnostics */
-  }
-  .service-card:nth-child(4) svg circle,
-  .service-card:nth-child(4) svg path {
-    stroke: #4caf50; /* Green for Tire Rotation */
-  }
-  .service-card:nth-child(5) svg {
-    fill: #ff9800; /* Orange for Engine Tune-Up */
-  }
-  .service-card:nth-child(6) svg {
-    fill: #4caf50; /* Green for Battery */
-  }
-  .service-card:nth-child(7) svg circle,
-  .service-card:nth-child(7) svg path {
-    stroke: #2196f3; /* Blue for Wheel Alignment */
-  }
-  .service-card:nth-child(8) svg path {
-    stroke: #9c27b0; /* Purple for AC Repair */
+  /* BURGER MENU CSS FIX - SHOW ON MOBILE */
+
+  .burger {
+    display: none; /* hidden on desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1002;
   }
 
-  /* Banner Styles */
+  .burger div {
+    width: 100%;
+    height: 4px;
+    background-color: #555;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Burger open/close animation */
+  .burger.active div:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  .burger.active div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+
+  /* Banner / Parallax */
   .banner {
     position: relative;
     background-image: url('copilot_image_1752787390494.jpeg');
@@ -138,13 +142,6 @@
     position: relative;
     z-index: 2;
     max-width: 800px;
-  }
-
-  .banner-content h1 {
-    background: linear-gradient(90deg, #e0e0e0, #bdbdbd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 3rem;
   }
 
   .banner-content p {
@@ -295,7 +292,6 @@
     margin-bottom: 25px;
     border-radius: 12px;
     color: #555;
-    position: relative;
   }
 
   .testimonial p {
@@ -307,20 +303,6 @@
     margin-top: 14px;
     font-weight: 700;
     color: #444;
-    text-align: right;
-  }
-
-  /* Quote icon on testimonials */
-  .testimonial::before {
-    content: "";
-    position: absolute;
-    left: 15px;
-    top: 15px;
-    width: 24px;
-    height: 24px;
-    background: url('data:image/svg+xml;utf8,<svg fill="%239c27b0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.17 6A5 5 0 0 1 12 11a5 5 0 0 1-4.83 5 5 5 0 0 1-1.12-9.88L7.17 6zm9 0A5 5 0 0 1 21 11a5 5 0 0 1-4.83 5 5 5 0 0 1-1.12-9.88L16.17 6z"/></svg>') no-repeat center center;
-    background-size: contain;
-    opacity: 0.15;
   }
 
   /* Contact */
@@ -373,7 +355,7 @@
     background-color: #555;
   }
 
-  /* Responsive */
+  /* Responsive adjustments */
   @media (max-width: 900px) {
     .banner-content h1 {
       font-size: 2.2rem;
@@ -414,35 +396,6 @@
       display: none;
     }
   }
-
-  /* Burger icon animations */
-  .burger div {
-    transition: all 0.3s ease;
-  }
-
-  .burger.active div:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-
-  .burger.active div:nth-child(2) {
-    opacity: 0;
-  }
-
-  .burger.active div:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
-
-  /* Fade-in Animations */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
 </style>
 </head>
 <body>
@@ -457,7 +410,7 @@
     <div></div>
     <div></div>
   </div>
-  <nav id="nav" role="navigation" aria-label="Primary">
+  <nav id="nav" role="navigation" aria-label="Primary Navigation">
     <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#about">About Us</a>
@@ -523,111 +476,109 @@
     </div>
     <div class="service-card fade-in">
       <!-- Wheel Alignment -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#2196f3" stroke-width="4" fill="none"/><path d="M16 32h32" stroke="#2196f3" stroke-width="4" stroke-linecap="round"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" stroke="#2196f3" stroke-width="4" fill="none"/><path d="M16 32h32" stroke="#2196f3" stroke-width="4"/></svg>
       <h3>Wheel Alignment</h3>
-      <p>Ensure proper wheel alignment for smooth driving.</p>
+      <p>Improve tire life and vehicle stability with precision alignment.</p>
     </div>
     <div class="service-card fade-in">
-      <!-- Air Conditioning Repair -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="14" stroke="#9c27b0" stroke-width="4" fill="none"/><path d="M32 18v28M18 32h28" stroke="#9c27b0" stroke-width="4" stroke-linecap="round"/></svg>
-      <h3>Air Conditioning Repair</h3>
-      <p>Keep your cool with our AC repair and maintenance.</p>
+      <!-- AC Repair -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M12 20h40v24H12z" stroke="#9c27b0" stroke-width="4" fill="none"/><path d="M20 28h24" stroke="#9c27b0" stroke-width="2"/></svg>
+      <h3>AC Repair</h3>
+      <p>Stay cool with our fast and effective AC system repairs.</p>
     </div>
   </div>
 </section>
 
 <section id="about">
   <h2>About Us</h2>
-  <p>Elite Auto Care has been serving our community with top-tier automotive repair and maintenance services. We specialize in quick and efficient car care, ensuring you hit the road safely every time.</p>
+  <p>At Elite Auto Care, we specialize in expert maintenance and repair for cars and trucks. Our certified technicians deliver quality workmanship with precision and care. We pride ourselves on transparency, timely service, and customer satisfaction. Trust us to keep your vehicle in top shape.</p>
 </section>
 
 <section id="pricing">
-  <h2>Pricing</h2>
-  <table aria-label="Pricing table">
+  <h2>Pricing & Packages</h2>
+  <table>
     <thead>
-      <tr>
-        <th>Service</th>
-        <th>Price (AED)</th>
-      </tr>
+      <tr><th>Service</th><th>Price</th></tr>
     </thead>
     <tbody>
-      <tr><td>Oil Change</td><td>150</td></tr>
-      <tr><td>Brake Repair</td><td>300</td></tr>
-      <tr><td>Diagnostics</td><td>200</td></tr>
-      <tr><td>Tire Rotation</td><td>120</td></tr>
-      <tr><td>Engine Tune-Up</td><td>400</td></tr>
-      <tr><td>Battery Replacement</td><td>250</td></tr>
-      <tr><td>Wheel Alignment</td><td>180</td></tr>
-      <tr><td>AC Repair</td><td>350</td></tr>
+      <tr><td>Oil Change</td><td>$49.99</td></tr>
+      <tr><td>Brake Repair</td><td>$120 - $350</td></tr>
+      <tr><td>Diagnostics</td><td>$75</td></tr>
+      <tr><td>Tire Rotation</td><td>$30</td></tr>
+      <tr><td>Full Maintenance Package</td><td>$399</td></tr>
     </tbody>
   </table>
 </section>
 
 <section id="booking">
-  <h2>Book Appointment</h2>
-  <form id="booking-form" aria-label="Appointment booking form">
-    <label for="name">Full Name</label>
-    <input id="name" name="name" type="text" placeholder="Your full name" required />
+  <h2>Book an Appointment</h2>
+  <form>
+    <label for="fullname">Full Name *</label>
+    <input type="text" id="fullname" name="fullname" placeholder="Your full name" required />
 
-    <label for="email">Email Address</label>
-    <input id="email" name="email" type="email" placeholder="Your email address" required />
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required />
 
-    <label for="phone">Phone Number</label>
-    <input id="phone" name="phone" type="tel" placeholder="Your phone number" required />
+    <label for="phone">Phone *</label>
+    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required />
 
-    <label for="service">Select Service</label>
+    <label for="service">Select Service *</label>
     <select id="service" name="service" required>
-      <option value="" disabled selected>Select a service</option>
+      <option value="" disabled selected>Choose a service</option>
       <option value="oil-change">Oil Change</option>
       <option value="brake-repair">Brake Repair</option>
       <option value="diagnostics">Diagnostics</option>
       <option value="tire-rotation">Tire Rotation</option>
-      <option value="engine-tune-up">Engine Tune-Up</option>
+      <option value="engine-tuneup">Engine Tune-Up</option>
       <option value="battery-replacement">Battery Replacement</option>
       <option value="wheel-alignment">Wheel Alignment</option>
       <option value="ac-repair">AC Repair</option>
     </select>
 
-    <label for="date">Preferred Date</label>
-    <input id="date" name="date" type="date" required />
+    <label for="date">Preferred Date *</label>
+    <input type="date" id="date" name="date" required />
+
+    <label for="notes">Additional Notes</label>
+    <textarea id="notes" name="notes" rows="4" placeholder="Any additional information"></textarea>
 
     <button type="submit">Submit</button>
   </form>
 </section>
 
 <section id="testimonials">
-  <h2>Testimonials</h2>
+  <h2>What Our Clients Say</h2>
   <div class="testimonial-list">
-    <div class="testimonial fade-in">
-      <p>"Elite Auto Care saved me time and money with their quick brake repair. Highly recommended!"</p>
-      <div class="client">– Sarah L.</div>
+    <div class="testimonial">
+      <p>"Elite Auto Care took care of my car like it was their own. Fast, professional, and fair pricing."</p>
+      <div class="client">- Jessica M.</div>
     </div>
-    <div class="testimonial fade-in">
-      <p>"Professional staff and excellent service. My car runs like new after the engine tune-up."</p>
-      <div class="client">– James K.</div>
+    <div class="testimonial">
+      <p>"The team diagnosed my brake issues quickly and got me back on the road safely. Highly recommend!"</p>
+      <div class="client">- Marcus L.</div>
     </div>
-    <div class="testimonial fade-in">
-      <p>"The best place in town for all vehicle repairs. Friendly and trustworthy mechanics."</p>
-      <div class="client">– Maria T.</div>
+    <div class="testimonial">
+      <p>"Friendly service and honest advice. I trust Elite Auto Care for all my truck maintenance needs."</p>
+      <div class="client">- Amy K.</div>
     </div>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact Us</h2>
-  <p>Phone: (555) 123-4567</p>
-  <p>Email: <a href="mailto:contact@eliteautocare.com">contact@eliteautocare.com</a></p>
-  <p>Address: 123 Main St, Dubai, UAE</p>
+  <p>Have questions or need assistance? Reach out to us!</p>
+  <p>Email: <a href="mailto:info@eliteautocare.com">info@eliteautocare.com</a></p>
+  <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a></p>
+  <p>Address: 1234 Main Street, City, State, ZIP</p>
 </section>
 
 <footer>
   &copy; 2025 Elite Auto Care. All rights reserved.
 </footer>
 
-<button id="topBtn" aria-label="Scroll to top">&#8679;</button>
+<button id="topBtn" title="Go to top">&#8679;</button>
 
 <script>
-  // Mobile navigation toggle
+  // Burger menu toggle
   const burger = document.getElementById('burger');
   const nav = document.getElementById('nav');
 
@@ -636,18 +587,11 @@
     burger.classList.toggle('active');
   });
 
-  burger.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      nav.classList.toggle('active');
-      burger.classList.toggle('active');
-    }
-  });
-
   // Scroll to top button
-  const topBtn = document.getElementById('topBtn');
+  const topBtn = document.getElementById("topBtn");
+
   window.onscroll = function() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
       topBtn.style.display = "block";
     } else {
       topBtn.style.display = "none";
@@ -657,30 +601,7 @@
   topBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-
-  // Testimonials fade-in animation on scroll
-  function fadeInOnScroll() {
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const windowBottom = window.innerHeight + window.pageYOffset;
-
-    fadeEls.forEach(el => {
-      const elementTop = el.offsetTop + 100; // start fade a bit before element top
-      if (windowBottom > elementTop) {
-        el.classList.add('visible');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', fadeInOnScroll);
-  window.addEventListener('load', fadeInOnScroll);
-
-  // Booking form submission (basic example)
-  const bookingForm = document.getElementById('booking-form');
-  bookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Thank you for booking an appointment! We will contact you soon.');
-    bookingForm.reset();
-  });
 </script>
+
 </body>
 </html>
