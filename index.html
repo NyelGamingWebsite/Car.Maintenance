@@ -282,35 +282,36 @@
     margin: auto;
   }
 
-  .testimonial {
-    background: #fafafa;
-    border: 2px solid #888;
-    padding: 20px 25px;
-    margin-bottom: 25px;
-    border-radius: 12px;
-    color: #555;
+.testimonial {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border: none;
+  color: #fff;
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(38, 50, 56, 0.3);
+  font-style: italic;
 
-    /* fade-in animation */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
+  /* fade-in animation */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
-  .testimonial.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.testimonial.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .testimonial p {
-    font-style: italic;
-    font-size: 1.1rem;
-  }
+.testimonial .client {
+  margin-top: 18px;
+  font-weight: 700;
+  color: #ffe;
+  font-style: normal;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
 
-  .testimonial .client {
-    margin-top: 14px;
-    font-weight: 700;
-    color: #444;
-  }
 
   /* Contact */
   #contact p {
@@ -571,14 +572,15 @@
 <section id="gallery">
   <h2>Gallery</h2>
   <div class="gallery-grid" style="display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:15px; max-width:900px; margin:auto;">
-    <img src="https://via.placeholder.com/320x200?text=Oil+Change" alt="Car maintenance work - oil change" style="width:100%; border-radius:8px;"/>
-    <img src="https://via.placeholder.com/320x200?text=Brake+Check" alt="Technician checking brakes" style="width:100%; border-radius:8px;"/>
-    <img src="https://via.placeholder.com/320x200?text=Tire+Rotation" alt="Tire rotation in progress" style="width:100%; border-radius:8px;"/>
-    <img src="https://via.placeholder.com/320x200?text=Customer+Consult" alt="Customer talking with mechanic" style="width:100%; border-radius:8px;"/>
-    <img src="https://via.placeholder.com/320x200?text=Engine+Tune-Up" alt="Car engine tuning" style="width:100%; border-radius:8px;"/>
-    <img src="https://via.placeholder.com/320x200?text=Battery+Replacement" alt="Battery replacement service" style="width:100%; border-radius:8px;"/>
+    <img src="https://picsum.photos/320/200?random=1" alt="Car maintenance work - oil change" style="width:100%; border-radius:8px;" />
+    <img src="https://picsum.photos/320/200?random=2" alt="Technician checking brakes" style="width:100%; border-radius:8px;" />
+    <img src="https://picsum.photos/320/200?random=3" alt="Tire rotation in progress" style="width:100%; border-radius:8px;" />
+    <img src="https://picsum.photos/320/200?random=4" alt="Customer talking with mechanic" style="width:100%; border-radius:8px;" />
+    <img src="https://picsum.photos/320/200?random=5" alt="Car engine tuning" style="width:100%; border-radius:8px;" />
+    <img src="https://picsum.photos/320/200?random=6" alt="Battery replacement service" style="width:100%; border-radius:8px;" />
   </div>
 </section>
+
 
 <section id="contact">
   <h2>Contact Us</h2>
